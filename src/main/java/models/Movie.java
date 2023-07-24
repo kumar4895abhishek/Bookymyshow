@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-public class Movie extends  BaseModel
+public class Movie extends BaseModel
 {
     private String name;
 

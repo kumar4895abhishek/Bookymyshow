@@ -9,7 +9,8 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
-public class Hall extends BaseModel  {
+public class Hall extends BaseModel
+{
 
     @ManyToOne
     private Theatre theatre;

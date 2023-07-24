@@ -7,7 +7,8 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
-public class ShowSeat extends BaseModel {
+public class ShowSeat extends BaseModel
+{
 
     private Show show;
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class City extends BaseModel
 	private String name;
 	
 	@OneToMany
+	@JoinColumn(name = "city_id")
 	List<Theatre> theaters =new ArrayList<>();
 
 }

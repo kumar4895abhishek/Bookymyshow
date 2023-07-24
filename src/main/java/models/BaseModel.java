@@ -13,7 +13,8 @@ import jakarta.persistence.MappedSuperclass;
 
 
 @MappedSuperclass  //parent entity class
-public abstract class BaseModel {
+public abstract class BaseModel
+{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
