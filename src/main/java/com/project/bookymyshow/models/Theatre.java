@@ -1,4 +1,4 @@
-package models;
+package com.project.bookymyshow.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +16,13 @@ public class Theatre extends BaseModel
 {
 	
 	private String address;
-	
+
 	private String name;
 
 	@OneToMany
-	@JoinColumn(name = "theatre_id")
 	private List<Hall> halls=new ArrayList<>();
 
 	@OneToMany
-	@JoinColumn(name = "theatre_id")
 	private List<Show>  shows=new ArrayList<>();
 
 }

@@ -1,9 +1,6 @@
-package models;
+package com.project.bookymyshow.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,7 +24,10 @@ public class Show extends BaseModel
     @ManyToOne
     private Theatre theatre;
 
-    @OneToMany(fetch=FetchType.EAGER,mappedBy = "show")
+    @ManyToOne
+    private Hall hall;
+
+    @OneToMany
     private List<ShowSeat> showSeats=new ArrayList<>();
 
 }

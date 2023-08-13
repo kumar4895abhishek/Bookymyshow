@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan(basePackages = "models") // Adjust the package path to where your entities are located
+// Adjust the package path to where your entities are located
 public class BookymyshowApplication {
 
 	public static void main(String[] args)

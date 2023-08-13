@@ -72,6 +72,7 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.5.7.Final</version> <!-- Replace with the latest compatible version -->
 		</dependency>
+
 	</dependencies>
 
 	<build>

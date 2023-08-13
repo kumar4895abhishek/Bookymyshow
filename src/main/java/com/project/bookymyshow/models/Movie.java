@@ -1,9 +1,11 @@
-package models;
+package com.project.bookymyshow.models;
 
-import enums.Language;
-import enums.MovieFeatures;
+import com.project.bookymyshow.enums.Language;
+import com.project.bookymyshow.enums.MovieFeatures;
+import com.project.bookymyshow.enums.PaymentMode;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,11 +23,11 @@ public class Movie extends BaseModel
     private Double rating;
 
     @ElementCollection
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private List<Language> languages=new ArrayList<>();
 
     @ElementCollection
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private List<MovieFeatures> movieFeatures=new ArrayList<>();
 
 
