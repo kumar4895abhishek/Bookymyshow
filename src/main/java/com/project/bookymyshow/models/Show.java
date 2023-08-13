@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
+@Table(name="show_name")
 public class Show extends BaseModel
 {
     @ManyToOne
