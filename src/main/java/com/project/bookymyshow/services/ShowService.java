@@ -1,7 +1,6 @@
 package com.project.bookymyshow.services;
 
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.project.bookymyshow.dtos.CreateShowRequest;
 import com.project.bookymyshow.models.Movie;
 import com.project.bookymyshow.models.Show;
@@ -10,7 +9,6 @@ import com.project.bookymyshow.repositories.ShowRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -23,11 +21,15 @@ public class ShowService
 
     private ShowRepository showRepository;
 
+    private MovieService movieService;
+
     public Show createShow(CreateShowRequest createShowRequest)
     {
 
         // Task 1 get movie by id by calling MovieService
-        Movie movie=null;
+        Movie movie=movieService.searchMovieById(createShowRequest.getMovieId());
+
+        System.out.println("MOVIE GOT HERE IS "+movie);
 
         System.out.println(" DURATION RECEIVED "+createShowRequest.getDuration());
             Show show=Show.builder()
@@ -53,6 +55,8 @@ public class ShowService
 
     public Show getShow(Long id)
     {
+        System.out.println("SHOW  ID RECEIVED IN SERVICE IS  " + id);
+
         return  showRepository
                 .findById(id).
                 orElseThrow(() -> new NoSuchElementException("NO ID FOUND "+id));
