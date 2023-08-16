@@ -1,27 +1,40 @@
 package com.project.bookymyshow.models;
 
-import com.project.bookymyshow.enums.PaymentMode;
-import com.project.bookymyshow.enums.PaymentStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import lombok.Getter;
-import lombok.Setter;
+import com.project.bookymyshow.enums.BookingStatus;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Booking extends  BaseModel
 {
 
-    private String reference;
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private  Show show;
+
+    @ManyToMany
+    private List<ShowSeat> seats=new ArrayList<>();
+
 
     private Double amount;
 
-    @Enumerated(EnumType.STRING)
-    private PaymentMode providerType;
+    private Date bookedAt;
 
     @Enumerated(EnumType.STRING)
-    private PaymentStatus status;
+    private BookingStatus bookingStatus;
+
+    @OneToMany
+    private List<Payment> payments =new ArrayList<>();
 
 }

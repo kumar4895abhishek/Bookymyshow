@@ -1,8 +1,7 @@
 package com.project.bookymyshow.models;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 import java.util.ArrayList;
@@ -13,12 +12,15 @@ import java.util.List;
 @Setter
 @Getter
 @Table(name="show_name")
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class Show extends BaseModel
 {
     @ManyToOne
     private Movie movie;
 
-    private Date StartTime;
+    private Date startTime;
 
     private Integer duration;
 
