@@ -1,7 +1,6 @@
 package com.project.bookymyshow.services;
 
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.project.bookymyshow.dtos.CreateShowRequest;
 import com.project.bookymyshow.models.Movie;
 import com.project.bookymyshow.models.Show;
@@ -10,7 +9,6 @@ import com.project.bookymyshow.repositories.ShowRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -53,6 +51,8 @@ public class ShowService
 
     public Show getShow(Long id)
     {
+        System.out.println("SHOW  ID RECEIVED IN SERVICE IS  " + id);
+
         return  showRepository
                 .findById(id).
                 orElseThrow(() -> new NoSuchElementException("NO ID FOUND "+id));

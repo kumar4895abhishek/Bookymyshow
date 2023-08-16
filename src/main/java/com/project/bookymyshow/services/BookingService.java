@@ -12,6 +12,8 @@ import com.project.bookymyshow.repositories.BookingRepository;
 import com.project.bookymyshow.repositories.ShowSeatRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.InvalidParameterException;
 import java.util.Date;
@@ -32,6 +34,7 @@ public class BookingService
     private ShowSeatRepository showSeatRepository;
 
     //@Transactional( isolation = Isolation.SERIALIZABLE)
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Booking createBooking( CreateBookingRequest createBookingRequest)
     {
 

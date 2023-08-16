@@ -16,7 +16,7 @@ public class ShowController
 
     //REAP API
 
-    @GetMapping("show/{id}")
+    @GetMapping("/show/{id}")
     private Show readShow(@PathVariable Long id)
     {
         return showService.getShow(id);
