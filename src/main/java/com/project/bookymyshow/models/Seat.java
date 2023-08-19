@@ -1,10 +1,7 @@
 package com.project.bookymyshow.models;
 
 import com.project.bookymyshow.enums.SeatType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,13 +9,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="seat")
+@Table(name="seat",uniqueConstraints = {@UniqueConstraint(columnNames = {"roNumber", "colNumber"}) })
 public class Seat extends  BaseModel
 {
-    private Integer rNumber;
+    private Long roNumber;
 
-    private Integer cNumber;
+    private Long colNumber;
 
     @Enumerated(EnumType.STRING)
     private SeatType type;
+
+
 }

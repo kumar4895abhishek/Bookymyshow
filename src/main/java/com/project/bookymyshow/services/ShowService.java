@@ -32,14 +32,15 @@ public class ShowService
         System.out.println("MOVIE GOT HERE IS "+movie);
 
         System.out.println(" DURATION RECEIVED "+createShowRequest.getDuration());
-            Show show=Show.builder()
+
+        Show show=Show.builder()
                     .startTime(createShowRequest.getStartTime())
                     .duration(createShowRequest.getDuration())
                     .movie(movie)
                     .showSeats(Collections.emptyList())
                     .build();
 
-            Show savedShow=showRepository.save(show);
+        Show savedShow=showRepository.save(show);
 
 
         // Task 2
