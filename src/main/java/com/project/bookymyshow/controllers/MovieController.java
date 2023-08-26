@@ -23,8 +23,9 @@ public class MovieController
     }
 
 
-    @GetMapping("/getmoviebyid/{id}")
-    public Movie getMovieById(@PathVariable Long id) {
+    @GetMapping("/getmoviebyid")
+    public Movie getMovieById(@RequestParam Long id)
+    {
 
             Movie movie = movieService.searchMovieById(id);
             return movie;
